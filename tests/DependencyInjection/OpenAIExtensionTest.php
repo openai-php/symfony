@@ -8,12 +8,15 @@ use OpenAI\Client;
 use OpenAI\Symfony\DependencyInjection\OpenAIExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class OpenAIExtensionTest extends TestCase
 {
     public function testService(): void
     {
         $container = new ContainerBuilder();
+        $container->set('http_client', $this->createMock(HttpClientInterface::class));
+
         $extension = new OpenAIExtension();
         $extension->load([
             'openai' => [
