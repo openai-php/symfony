@@ -19,6 +19,7 @@
     },
     "require-dev": {
         "laravel/pint": "^1.6",
+        "phpstan/phpstan": "^1.10.3",
         "symfony/phpunit-bridge": "^6.2"
     },
     "autoload": {

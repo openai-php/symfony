@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
  */
 class OpenAIExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.php');
