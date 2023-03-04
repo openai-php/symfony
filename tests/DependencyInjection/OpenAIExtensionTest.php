@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OpenAI\Symfony\Tests\DependencyInjection;
 
 use OpenAI\Client;
@@ -7,7 +9,7 @@ use OpenAI\Symfony\DependencyInjection\OpenAIExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class OpenAIExtensionTest extends TestCase
+final class OpenAIExtensionTest extends TestCase
 {
     public function testService(): void
     {

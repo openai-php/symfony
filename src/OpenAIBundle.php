@@ -7,8 +7,8 @@ namespace OpenAI\Symfony;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * @author Jérôme Tamarelle <jerome@tamarelle.net>
+ * @internal
  */
-class OpenAIBundle extends Bundle
+final class OpenAIBundle extends Bundle
 {
 }
