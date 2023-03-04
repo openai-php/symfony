@@ -13,7 +13,6 @@
     "require": {
         "php": "^8.1.0",
         "openai-php/client": "^0.3.4",
-        "rector/rector": "^0.14.8",
         "symfony/config": "^5.4.21|^6.2.7",
         "symfony/dependency-injection": "^5.4.21|^6.2.7",
         "symfony/http-kernel": "^5.4.21|^6.2.7"
@@ -21,6 +20,7 @@
     "require-dev": {
         "laravel/pint": "^1.6.0",
         "phpstan/phpstan": "^1.10.3",
+        "rector/rector": "^0.14.8",
         "symfony/phpunit-bridge": "^6.2.7"
     },
     "autoload": {
