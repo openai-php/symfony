@@ -15,5 +15,6 @@ return static function (ContainerConfigurator $container) {
                 abstract_arg('API Key'),
                 abstract_arg('Organisation'),
             ])
-        ->alias('openai', Client::class);
+        ->alias('openai', Client::class)
+        ->alias(Client::class);
 };
