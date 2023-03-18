@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OpenAI\Symfony\DependencyInjection;
 
-use OpenAI\Client;
+use OpenAI\Factory;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -30,8 +30,10 @@ final class OpenAIExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);
 
-        $definition = $container->getDefinition(Client::class);
-        $definition->setArgument(0, $config['api_key']);
-        $definition->setArgument(1, $config['organization']);
+        $definition = $container->getDefinition(Factory::class);
+        $definition->addMethodCall('withApiKey', [$config['api_key']]);
+        if ($config['organization']) {
+            $definition->addMethodCall('withOrganization', [$config['organization']]);
+        }
     }
 }

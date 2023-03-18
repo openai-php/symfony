@@ -12,9 +12,13 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "openai-php/client": "^0.3.5",
+        "nyholm/psr7": "^1.5",
+        "openai-php/client": "^0.4.0",
+        "psr/http-client": "^1.0.1",
+        "psr/http-factory": "^1.0.1",
         "symfony/config": "^5.4.21|^6.2.7",
         "symfony/dependency-injection": "^5.4.21|^6.2.7",
+        "symfony/http-client": "^5.4.21|^6.2.7",
         "symfony/http-kernel": "^5.4.21|^6.2.7"
     },
     "require-dev": {
@@ -37,7 +41,10 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
     },
     "scripts": {
         "lint": "pint -v",

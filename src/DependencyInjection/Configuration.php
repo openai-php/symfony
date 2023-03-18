@@ -28,15 +28,8 @@ final class Configuration implements ConfigurationInterface
 
         assert($children instanceof NodeBuilder);
 
-        $children = $children->scalarNode('api_key')->defaultValue('%env(OPENAI_API_KEY)%')->end();
-
-        assert($children instanceof NodeBuilder);
-
-        $children = $children->scalarNode('organization')->defaultValue('%env(default::OPENAI_ORGANIZATION)%')->end();
-
-        assert($children instanceof NodeBuilder);
-
-        $children->end();
+        $children->scalarNode('api_key')->defaultValue('%env(OPENAI_API_KEY)%')->end();
+        $children->scalarNode('organization')->defaultValue('%env(default::OPENAI_ORGANIZATION)%')->end();
 
         return $treeBuilder;
     }
