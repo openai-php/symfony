@@ -12,14 +12,14 @@ use Symfony\Component\HttpClient\Psr18Client;
 return static function (ContainerConfigurator $container) {
     $container->services()
         ->set('openai.http_client', Psr18Client::class)
-            ->arg(0, service('http_client'))
+        ->arg(0, service('http_client'))
 
         ->set(Factory::class)
-            ->factory([OpenAI::class, 'factory'])
-            ->call('withHttpClient', [service('openai.http_client')])
+        ->factory([OpenAI::class, 'factory'])
+        ->call('withHttpClient', [service('openai.http_client')])
 
         ->set(Client::class)
-            ->factory([service(Factory::class), 'make'])
+        ->factory([service(Factory::class), 'make'])
 
         ->alias('openai', Client::class);
 };

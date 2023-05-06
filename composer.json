@@ -12,20 +12,20 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "nyholm/psr7": "^1.5.1",
-        "openai-php/client": "^0.4.1",
-        "psr/http-client": "^1.0.1",
-        "psr/http-factory": "^1.0.1",
+        "nyholm/psr7": "^1.8.0",
+        "openai-php/client": "^0.4.2",
+        "psr/http-client": "^1.0.2",
+        "psr/http-factory": "^1.0.2",
         "symfony/config": "^5.4.21|^6.2.7",
-        "symfony/dependency-injection": "^5.4.21|^6.2.7",
-        "symfony/http-client": "^5.4.21|^6.2.7",
-        "symfony/http-kernel": "^5.4.21|^6.2.7"
+        "symfony/dependency-injection": "^5.4.21|^6.2.10",
+        "symfony/http-client": "^5.4.21|^6.2.10",
+        "symfony/http-kernel": "^5.4.21|^6.2.10"
     },
     "require-dev": {
-        "laravel/pint": "^1.7.0",
-        "phpstan/phpstan": "^1.10.8",
+        "laravel/pint": "^1.10.0",
+        "phpstan/phpstan": "^1.10.14",
         "rector/rector": "^0.14.8",
-        "symfony/phpunit-bridge": "^6.2.7"
+        "symfony/phpunit-bridge": "^6.2.10"
     },
     "autoload": {
         "psr-4": {
