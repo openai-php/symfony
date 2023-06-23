@@ -56,6 +56,9 @@
             "@test:lint",
             "@test:types",
             "@test:unit"
+        ],
+        "post-install-cmd": [
+            "OpenAI\\Symfony\\Composer\\RegisterBundle::registerBundle"
         ]
     }
 }
