@@ -25,7 +25,7 @@ First, install OpenAI via the [Composer](https://getcomposer.org/) package manag
 composer require openai-php/symfony
 ```
 
-Next, register the bundle in your `config/bundles.php`:
+Next, check registering of the bundle in your `config/bundles.php`:
 
 ```php
 return [
