@@ -25,7 +25,7 @@ final class OpenAIExtensionTest extends TestCase
                 'http_code' => 200,
                 'response_headers' => [
                     'content-type' => 'application/json',
-					'x-request-id' => '0123456789abcdef0123456789abcdef',
+                    'x-request-id' => '0123456789abcdef0123456789abcdef',
                 ],
             ]);
         });
