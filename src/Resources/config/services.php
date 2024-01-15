@@ -17,7 +17,7 @@ return static function (ContainerConfigurator $container) {
         ->set(Factory::class)
         ->factory([OpenAI::class, 'factory'])
         ->call('withHttpClient', [service('openai.http_client')])
-        ->call('withHttpHeader', ['OpenAI-Beta' , 'assistants=v1'])
+        ->call('withHttpHeader', ['OpenAI-Beta', 'assistants=v1'])
 
         ->set(Client::class)
         ->factory([service(Factory::class), 'make'])
