@@ -46,7 +46,7 @@ Finally, you may use the `openai` service to access the OpenAI API:
 
 ```php
 $result = $container->get('openai')->completions()->create([
-    'model' => 'text-davinci-003',
+    'model' => 'gpt-3.5-turbo-instruct',
     'prompt' => 'PHP is',
 ]);
 
