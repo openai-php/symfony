@@ -6,6 +6,4 @@ namespace OpenAI\Symfony;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class OpenAIBundle extends Bundle
-{
-}
+final class OpenAIBundle extends Bundle {}

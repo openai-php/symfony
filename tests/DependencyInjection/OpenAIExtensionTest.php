@@ -30,10 +30,10 @@ final class OpenAIExtensionTest extends TestCase
             ]);
         });
 
-        $container = new ContainerBuilder();
+        $container = new ContainerBuilder;
         $container->set('http_client', $httpClient);
 
-        $extension = new OpenAIExtension();
+        $extension = new OpenAIExtension;
         $extension->load([
             'openai' => [
                 'api_key' => 'pk-123456789',
