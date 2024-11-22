@@ -6,6 +6,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use OpenAI;
 use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Factory;
 use Symfony\Component\HttpClient\Psr18Client;
 
@@ -22,5 +23,6 @@ return static function (ContainerConfigurator $container) {
         ->set(Client::class)
         ->factory([service(Factory::class), 'make'])
 
+        ->alias(ClientContract::class, Client::class)
         ->alias('openai', Client::class);
 };

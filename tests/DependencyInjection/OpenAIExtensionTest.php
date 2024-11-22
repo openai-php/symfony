@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OpenAI\Symfony\Tests\DependencyInjection;
 
 use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Symfony\DependencyInjection\OpenAIExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,7 +14,7 @@ use Symfony\Component\HttpClient\Response\MockResponse;
 
 final class OpenAIExtensionTest extends TestCase
 {
-    public function testService(): void
+    public function test_service(): void
     {
         // Using a mock to test the service configuration
         $httpClient = new MockHttpClient(function (string $method, string $url, array $options = []) {
@@ -45,5 +46,7 @@ final class OpenAIExtensionTest extends TestCase
 
         $response = $openai->files()->delete('file.txt');
         self::assertSame('file.txt', $response->id);
+
+        self::assertSame($openai, $container->get(ClientContract::class), 'Alias for the ClientContract interface');
     }
 }
