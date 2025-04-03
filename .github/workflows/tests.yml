@@ -10,18 +10,16 @@ jobs:
       fail-fast: true
       matrix:
         php: [8.1, 8.2, 8.3, 8.4]
-        symfony: [5.4.*, 6.3.*, 6.4.*, 7.0.*]
+        symfony: [5.4.*, 6.4.*, 7.2.*]
         dependency-version: [prefer-lowest, prefer-stable]
         include:
           - php: "8.1"
             symfony: "^5.4"
           - php: "8.1"
-            symfony: "^6.3"
-          - php: "8.1"
             symfony: "^6.4"
         exclude:
           - php: "8.1"
-            symfony: "^7.0"
+            symfony: "^7.2"
 
     name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency-version }}
     steps:
@@ -49,6 +47,7 @@ jobs:
           "symfony/dependency-injection:${{ matrix.symfony }}"
           "symfony/http-kernel:${{ matrix.symfony }}"
           --no-interaction --no-update
+
       - name: Install Composer dependencies
         run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
 
