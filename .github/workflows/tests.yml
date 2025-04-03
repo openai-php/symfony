@@ -19,6 +19,8 @@ jobs:
             symfony: 5.4.*
           - php: 8.4
             symfony: 6.4.*
+          - php: 8.4
+            symfony: 7.0.*
 
     name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency-version }}
     steps:
