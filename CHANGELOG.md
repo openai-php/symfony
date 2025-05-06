@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.12.0 (2025-05-06)
+### Changed
+- Changed underlying `openai/client` package version to 0.12.0
+
 ## v0.10.0 (2024-06-19)
 ### Changed
 - Specify header `OpenAI-Beta: assistants=v2`
