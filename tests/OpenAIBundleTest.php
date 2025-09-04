@@ -35,6 +35,9 @@ final class OpenAIBundleTest extends TestCase
             {
                 $container->extension('framework', [
                     'secret' => 'S0ME_SECRET',
+                    'http_method_override' => false,
+                    'handle_all_throwables' => true,
+                    'php_errors' => ['log' => true],
                 ]);
 
                 $container->extension('openai', [
