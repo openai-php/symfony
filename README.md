@@ -42,6 +42,8 @@ OPENAI_API_KEY=sk-...
 OPENAI_ORGANIZATION=...
 ```
 
+For more configuration options, take a look at the [Configuration Reference](#configuration-reference).
+
 Finally, you may use the `openai` service to access the OpenAI API:
 
 ```php
@@ -56,6 +58,18 @@ echo $result['choices'][0]['text']; // an open-source, widely-used, server-side 
 ## Usage
 
 For usage examples, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
+
+## Configuration Reference
+
+The bundle provides the following configuration options, which you can set in your `config/packages/openai.yaml` file:
+
+```yaml
+openai:
+    api_key: '%env(OPENAI_API_KEY)%' # Your OpenAI API key (required)
+    organization: '%env(OPENAI_ORGANIZATION)%' # Your OpenAI organization ID (optional)
+    project: 'proj_...' # The project ID (optional)
+    base_uri: 'api.openai.com/v1' # The base URI for the OpenAI API (optional)
+```
 
 ---
 
