@@ -27,9 +27,10 @@
     },
     "require-dev": {
         "laravel/pint": "^1.18.1",
-        "phpstan/phpstan": "^1.12.6",
-        "rector/rector": "^0.14.8",
-        "symfony/phpunit-bridge": "^5.4|^6.3|^7.1.4"
+        "phpstan/phpstan": "^2.1.2",
+        "rector/rector": "^2.1.5",
+        "symfony/phpunit-bridge": "^5.4|^6.3|^7.1.4",
+        "symfony/framework-bundle": "^5.4|^6.3|^7.1"
     },
     "autoload": {
         "psr-4": {
@@ -53,7 +54,7 @@
     "scripts": {
         "lint": "pint -v",
         "refactor": "rector --debug",
-        "test:lint": "pint --test -v",
+        "test:lint": "pint --test -v ./src ./tests",
         "test:types": "phpstan analyse --ansi",
         "test:unit": "simple-phpunit --colors=always",
         "test": [
