@@ -10,15 +10,10 @@ jobs:
       fail-fast: true
       matrix:
         php: [8.2, 8.3, 8.4]
-        symfony: [5.4.*, 6.4.*, 7.0.*]
-        dependency-version: [prefer-lowest, prefer-stable]
-        exclude:
-          - php: 8.4
-            symfony: 5.4.*
-          - php: 8.4
-            symfony: 6.4.*
-          - php: 8.4
-            symfony: 7.0.*
+        symfony: [6.4.*, 7.3.*]
+        dependency-version: [prefer-stable]
+        include:
+          - { php: 8.2, symfony: 6.4.*, dependency-version: prefer-lowest }
 
     name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency-version }}
     steps:
