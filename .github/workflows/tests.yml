@@ -15,6 +15,9 @@ jobs:
         include:
           - { php: 8.2, symfony: 6.4.*, dependency-version: prefer-lowest }
 
+    env:
+      SYMFONY_REQUIRE: ${{ matrix.symfony-version }}
+
     name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency-version }}
     steps:
 
@@ -33,14 +36,7 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, mbstring, zip
           coverage: none
-
-      - name: Require Symfony Version
-        run: >
-          composer require
-          "symfony/config:${{ matrix.symfony }}"
-          "symfony/dependency-injection:${{ matrix.symfony }}"
-          "symfony/http-kernel:${{ matrix.symfony }}"
-          --no-interaction --no-update
+          tools: flex
 
       - name: Install Composer dependencies
         run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
