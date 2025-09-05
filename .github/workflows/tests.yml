@@ -11,9 +11,11 @@ jobs:
       matrix:
         php: [8.2, 8.3, 8.4]
         symfony: [6.4.*, 7.3.*]
-        dependency-version: [prefer-stable]
+        dependency-version: [stable]
         include:
-          - { php: 8.2, symfony: 6.4.*, dependency-version: prefer-lowest }
+          - { php: 8.2, symfony: 6.4.*, dependency-version: lowest }
+          - { php: 8.3, symfony: 7.4.*, dependency-version: highest }
+          - { php: 8.4, symfony: 8.0.*, dependency-version: highest }
 
     env:
       SYMFONY_REQUIRE: ${{ matrix.symfony-version }}
@@ -39,7 +41,9 @@ jobs:
           tools: flex
 
       - name: Install Composer dependencies
-        run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
+        uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: ${{ matrix.php }}
 
       - name: Integration Tests
         run: php ./vendor/bin/simple-phpunit
