@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Refactored into a single `OpenAI\Symfony\OpenAIBundle` class
 - Add `project` and `base_uri` configuration options
 - Drop support for unsupported Symfony versions. Now requires Symfony 6.4 or 7.3+
+- Add support for Symfony 8.0
 
 ## v0.12.0 (2025-05-06)
 ### Changed

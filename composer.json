@@ -20,17 +20,17 @@
         "openai-php/client": "^0.17.0",
         "psr/http-client": "^1.0.3",
         "psr/http-factory": "^1.1.0",
-        "symfony/config": "^6.4|^7.3",
-        "symfony/dependency-injection": "^6.4|^7.3",
-        "symfony/http-client": "^6.4|^7.3",
-        "symfony/http-kernel": "^6.4|^7.3"
+        "symfony/config": "^6.4|^7.3|^8.0",
+        "symfony/dependency-injection": "^6.4|^7.3|^8.0",
+        "symfony/http-client": "^6.4|^7.3|^8.0",
+        "symfony/http-kernel": "^6.4|^7.3|^8.0"
     },
     "require-dev": {
         "laravel/pint": "^1.24.0",
         "phpstan/phpstan": "^2.1.22",
         "rector/rector": "^2.1.5",
-        "symfony/phpunit-bridge": "^6.4.25|^7.3",
-        "symfony/framework-bundle": "^6.4|^7.3"
+        "symfony/phpunit-bridge": "^6.4.25|^7.3|^8.0",
+        "symfony/framework-bundle": "^6.4|^7.3|^8.0"
     },
     "autoload": {
         "psr-4": {
