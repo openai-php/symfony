@@ -11,26 +11,20 @@ jobs:
       matrix:
         php: [8.2, 8.3, 8.4]
         symfony: [6.4.*, 7.3.*]
-        dependency-version: [stable]
+        dependency: [stable]
         include:
-          - { php: 8.2, symfony: 6.4.*, dependency-version: lowest }
-          - { php: 8.3, symfony: 7.4.*, dependency-version: highest }
-          - { php: 8.4, symfony: 8.0.*, dependency-version: highest }
+          - { php: 8.2, symfony: 6.4.*, dependency: lowest }
+          - { php: 8.3, symfony: 7.4.*, dependency: highest }
+          - { php: 8.4, symfony: 8.0.*, dependency: highest }
 
     env:
-      SYMFONY_REQUIRE: ${{ matrix.symfony-version }}
+      SYMFONY_REQUIRE: ${{ matrix.symfony }}
 
-    name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency-version }}
+    name: Tests P${{ matrix.php }} - SF${{ matrix.symfony }} - ubuntu-latest - ${{ matrix.dependency }}
     steps:
 
       - name: Checkout
         uses: actions/checkout@v5
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-SF${{ matrix.symfony }}-${{ matrix.dependency-version }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
