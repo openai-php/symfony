@@ -33,8 +33,7 @@ final class OpenAIBundle extends AbstractBundle
         $children
             ->scalarNode('organization')
             ->info('OpenAI API Organization used to authenticate with the OpenAI API')
-            ->defaultValue('%env(default::OPENAI_ORGANIZATION)%')
-            ->info('');
+            ->defaultValue('%env(default::OPENAI_ORGANIZATION)%');
         $children
             ->scalarNode('project')
             ->defaultNull()
