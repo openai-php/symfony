@@ -4,12 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## v0.17.0
+## v0.17.0 (2024-10-02)
 ### Changed
 - Refactored into a single `OpenAI\Symfony\OpenAIBundle` class
 - Add `project` and `base_uri` configuration options
 - Drop support for unsupported Symfony versions. Now requires Symfony 6.4 or 7.3+
 - Add support for Symfony 8.0
+- Changed underlying `openai/client` package version to 0.17.0
 
 ## v0.12.0 (2025-05-06)
 ### Changed
