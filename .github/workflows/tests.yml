@@ -10,12 +10,11 @@ jobs:
       fail-fast: true
       matrix:
         php: [8.2, 8.3, 8.4]
-        symfony: [6.4.*, 7.3.*]
+        symfony: [^6.4, false]
         dependency: [stable]
         include:
-          - { php: 8.2, symfony: 6.4.*, dependency: lowest }
-          - { php: 8.3, symfony: 7.4.*, dependency: highest }
-          - { php: 8.4, symfony: 8.0.*, dependency: highest }
+          - { php: 8.4, symfony: ^7.4, dependency: highest }
+          - { php: 8.4, symfony: ^8.0, dependency: highest }
 
     env:
       SYMFONY_REQUIRE: ${{ matrix.symfony }}
@@ -37,7 +36,7 @@ jobs:
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
         with:
-          dependency-versions: ${{ matrix.php }}
+          dependency-versions: ${{ matrix.dependency }}
 
       - name: Integration Tests
         run: php ./vendor/bin/simple-phpunit
