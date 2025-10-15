@@ -7,10 +7,12 @@ namespace OpenAI\Symfony\Tests;
 use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Symfony\OpenAIBundle;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\ErrorHandler\ErrorHandler;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 use Symfony\Component\HttpKernel\Kernel;
@@ -19,6 +21,38 @@ use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 final class OpenAIBundleTest extends TestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        ErrorHandler::register(null, false);
+    }
+
+    #[DoesNotPerformAssertions]
+    public function test_defaults(): void
+    {
+        $kernel = new class('test', true) extends Kernel
+        {
+            use MicroKernelTrait;
+
+            public function registerBundles(): iterable
+            {
+                yield new FrameworkBundle;
+                yield new OpenAIBundle;
+            }
+
+            protected function configureContainer(ContainerConfigurator $container): void
+            {
+                $container->extension('framework', [
+                    'secret' => 'S0ME_SECRET',
+                    'http_method_override' => false,
+                    'handle_all_throwables' => true,
+                    'php_errors' => ['log' => true],
+                ]);
+            }
+        };
+
+        $kernel->boot();
+    }
+
     public function test_service(): void
     {
         $kernel = new class('test', true) extends Kernel
