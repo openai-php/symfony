@@ -28,8 +28,7 @@ final class OpenAIBundle extends AbstractBundle
         $children
             ->scalarNode('api_key')
             ->defaultValue('%env(OPENAI_API_KEY)%')
-            ->info('OpenAI API Key used to authenticate with the OpenAI API')
-            ->isRequired();
+            ->info('OpenAI API Key used to authenticate with the OpenAI API');
         $children
             ->scalarNode('organization')
             ->info('OpenAI API Organization used to authenticate with the OpenAI API')
