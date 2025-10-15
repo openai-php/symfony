@@ -39,4 +39,4 @@ jobs:
           dependency-versions: ${{ matrix.dependency }}
 
       - name: Integration Tests
-        run: php ./vendor/bin/simple-phpunit
+        run: php ./vendor/bin/phpunit

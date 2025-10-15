@@ -29,7 +29,7 @@
         "laravel/pint": "^1.24.0",
         "phpstan/phpstan": "^2.1.22",
         "rector/rector": "^2.1.5",
-        "symfony/phpunit-bridge": "^6.4.25|^7.3|^8.0",
+        "phpunit/phpunit": "^11|^12",
         "symfony/framework-bundle": "^6.4|^7.3|^8.0"
     },
     "autoload": {
