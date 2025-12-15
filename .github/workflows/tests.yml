@@ -9,12 +9,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.2, 8.3, 8.4]
-        symfony: [^6.4, false]
+        php: [8.2, 8.3, 8.4, 8.5]
+        symfony: [false]
         dependency: [stable]
         include:
+          - { php: 8.2, symfony: ^6.4 , dependency: stable }
           - { php: 8.4, symfony: ^7.4, dependency: highest }
-          - { php: 8.4, symfony: ^8.0, dependency: highest }
+          - { php: 8.4, symfony: false, dependency: highest }
 
     env:
       SYMFONY_REQUIRE: ${{ matrix.symfony }}

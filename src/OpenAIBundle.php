@@ -7,7 +7,6 @@ namespace OpenAI\Symfony;
 use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Factory;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -23,13 +22,11 @@ final class OpenAIBundle extends AbstractBundle
     public function configure(DefinitionConfigurator $definition): void
     {
         $root = $definition->rootNode();
-        assert($root instanceof ArrayNodeDefinition);
         $children = $root->children();
         $children
             ->scalarNode('api_key')
             ->defaultValue('%env(OPENAI_API_KEY)%')
-            ->info('OpenAI API Key used to authenticate with the OpenAI API')
-            ->isRequired();
+            ->info('OpenAI API Key used to authenticate with the OpenAI API');
         $children
             ->scalarNode('organization')
             ->info('OpenAI API Organization used to authenticate with the OpenAI API')
