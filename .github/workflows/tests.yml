@@ -26,10 +26,10 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, mbstring, zip
@@ -37,7 +37,7 @@ jobs:
           tools: flex
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v4
+        uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda # v4
         with:
           dependency-versions: ${{ matrix.dependency }}
 
